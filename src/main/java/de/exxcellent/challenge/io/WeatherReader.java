@@ -43,6 +43,12 @@ public class WeatherReader implements IDataReader<WeatherDataEntry>{
             return new WeatherDataEntry(dayIndex, maxTemp, minTemp);
         };
         try {
+            List<WeatherDataEntry> result = dataSourceConnector.readData(mapToWeatherDataEntry);
+            for(var element : result){
+                if (element.maxTemp() < element.minTemp()){
+                    throw new IllegalArgumentException("Max temperature must not be smaller than min temperature");
+                }
+            }
             return dataSourceConnector.readData(mapToWeatherDataEntry);
         }catch (NumberFormatException n){
             throw new IllegalArgumentException("The provided data does not represent a WeatherDataEntry");
