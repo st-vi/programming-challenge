@@ -1,6 +1,8 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.analyzer.FootballAnalyzer;
 import de.exxcellent.challenge.analyzer.WeatherAnalyzer;
+import de.exxcellent.challenge.io.FootballReader;
 import de.exxcellent.challenge.io.WeatherReader;
 import de.exxcellent.challenge.model.FootballDataEntry;
 import de.exxcellent.challenge.model.WeatherDataEntry;
@@ -30,11 +32,11 @@ public class TestFootballAnalyzer {
         mockData.add(entry);
 
         MockDataSourceConnector<FootballDataEntry> mockDataSourceConnector = new MockDataSourceConnector<>(mockData);
-        F weatherReader = new WeatherReader(mockDataSourceConnector);
+        FootballReader footballReader = new FootballReader(mockDataSourceConnector);
 
-        List<WeatherDataEntry> weatherDataEntries = weatherReader.readData();
-        WeatherAnalyzer weatherAnalyzer = new WeatherAnalyzer();
-        int resultDayId = weatherAnalyzer.getDayWithMinTemperatureSpread(weatherDataEntries);
-        assertEquals(2, resultDayId);
+        List<FootballDataEntry> footballDataEntries = footballReader.readData();
+        FootballAnalyzer footballAnalyzer = new FootballAnalyzer();
+        String teamName = footballAnalyzer.getTeamNameWithMinGoalDifference(footballDataEntries);
+        assertEquals("a", teamName);
     }
 }
