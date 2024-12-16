@@ -28,4 +28,10 @@ public class TestCSVReader {
         CSVSourceConnector<String> reader = new CSVSourceConnector<>(invalidPath);
         assertThrows(FileNotFoundException.class, () -> reader.readData(data -> "test"));
     }
+
+    @Test
+    void testInvalidFileType() {
+        CSVSourceConnector<String> reader = new CSVSourceConnector<>(nonCsvPath);
+        assertThrows(IllegalArgumentException.class, () -> reader.readData(data -> "test"));
+    }
 }
