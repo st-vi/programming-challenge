@@ -46,9 +46,6 @@ public class TestWeatherReader {
         MockDataSourceConnector<WeatherDataEntry> mockDataSourceConnector = new MockDataSourceConnector<>(mockData);
         WeatherReader weatherReader = new WeatherReader(mockDataSourceConnector);
 
-        WeatherDataEntry expectedEntry = new WeatherDataEntry(1, 88,59);
-        List<WeatherDataEntry> result = weatherReader.readData();
-
         assertThrows(IllegalArgumentException.class, weatherReader::readData);
     }
 }
