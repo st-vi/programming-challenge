@@ -26,7 +26,7 @@ public final class App {
         try {
             IDataReader<WeatherDataEntry> weatherReader = new WeatherReader(
                     new CSVSourceConnector<WeatherDataEntry>(
-                            Paths.get("resources/weather.csv")
+                            Paths.get("./src/main/resources/de/exxcellent/challenge/weather.csv")
                     )
             );
 
@@ -40,7 +40,7 @@ public final class App {
             String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
             System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
         }catch (FileNotFoundException e) {
-            //TODO
+            System.out.println(e);
         }
 
     }
