@@ -49,7 +49,7 @@ public class WeatherReader implements IDataReader<WeatherDataEntry>{
                     throw new IllegalArgumentException("Max temperature must not be smaller than min temperature");
                 }
             }
-            return dataSourceConnector.readData(mapToWeatherDataEntry);
+            return result;
         }catch (NumberFormatException n){
             throw new IllegalArgumentException("The provided data does not represent a WeatherDataEntry");
         }
