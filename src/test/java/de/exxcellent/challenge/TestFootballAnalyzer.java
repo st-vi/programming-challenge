@@ -1,11 +1,8 @@
 package de.exxcellent.challenge;
 
 import de.exxcellent.challenge.analyzer.FootballAnalyzer;
-import de.exxcellent.challenge.analyzer.WeatherAnalyzer;
 import de.exxcellent.challenge.io.FootballReader;
-import de.exxcellent.challenge.io.WeatherReader;
 import de.exxcellent.challenge.model.FootballDataEntry;
-import de.exxcellent.challenge.model.WeatherDataEntry;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
