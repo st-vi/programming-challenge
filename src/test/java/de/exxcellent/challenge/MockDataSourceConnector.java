@@ -15,7 +15,7 @@ public class MockDataSourceConnector<T> implements IDataSourceConnector<T> {
         this.mockData = mockData;
     }
     @Override
-    public List<T> readData(Function<Map<String, String>, T> dataMapping) throws FileNotFoundException {
+    public List<T> readData(Function<Map<String, String>, T> dataMapping) {
         List<T> result = new LinkedList<>();
         for (var element : mockData){
             result.add(dataMapping.apply(element));

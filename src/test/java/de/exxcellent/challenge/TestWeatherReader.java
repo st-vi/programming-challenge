@@ -34,7 +34,7 @@ public class TestWeatherReader {
     }
 
     @Test
-    void testMalformedDataReading() throws IOException {
+    void testMalformedDataReading() {
         List<Map<String,String>> mockData = new LinkedList<>();
         Map<String,String> entry = new HashMap<>();
         entry.put("a", "a");
@@ -48,7 +48,7 @@ public class TestWeatherReader {
     }
 
     @Test
-    void testMinGreaterMaxTempReading() throws IOException {
+    void testMinGreaterMaxTempReading() {
         List<Map<String,String>> mockData = new LinkedList<>();
         Map<String,String> entry = new HashMap<>();
         entry.put("Day", "1");
