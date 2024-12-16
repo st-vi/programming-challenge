@@ -1,6 +1,5 @@
 package de.exxcellent.challenge;
 
-import de.exxcellent.challenge.io.CSVSourceConnector;
 import de.exxcellent.challenge.io.WeatherReader;
 import de.exxcellent.challenge.model.WeatherDataEntry;
 import org.junit.jupiter.api.Test;
@@ -10,7 +9,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

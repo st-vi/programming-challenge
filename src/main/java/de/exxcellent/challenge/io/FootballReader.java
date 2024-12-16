@@ -1,7 +1,6 @@
 package de.exxcellent.challenge.io;
 
 import de.exxcellent.challenge.model.FootballDataEntry;
-import de.exxcellent.challenge.model.WeatherDataEntry;
 
 import java.io.FileNotFoundException;
 import java.util.List;

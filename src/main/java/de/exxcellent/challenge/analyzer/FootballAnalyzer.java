@@ -1,7 +1,6 @@
 package de.exxcellent.challenge.analyzer;
 
 import de.exxcellent.challenge.model.FootballDataEntry;
-import de.exxcellent.challenge.model.WeatherDataEntry;
 
 import java.util.List;
 
