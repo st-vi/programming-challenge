@@ -2,7 +2,6 @@ package de.exxcellent.challenge;
 
 import de.exxcellent.challenge.io.IDataSourceConnector;
 
-import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
