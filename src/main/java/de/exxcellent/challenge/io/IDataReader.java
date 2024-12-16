@@ -1,5 +1,6 @@
 package de.exxcellent.challenge.io;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 
 /**
@@ -14,5 +15,5 @@ public interface IDataReader<T> {
      *
      * @return A list of type {@code T} read from the source.
      */
-    public List<T> readData();
+    public List<T> readData() throws FileNotFoundException;
 }
