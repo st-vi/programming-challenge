@@ -19,12 +19,10 @@ public class TestCSVReader {
     private Path validPath;
     private Path invalidPath;
     private Path nonCsvPath;
-    private Path malformedCSVPath;
 
     @BeforeEach
     void setUp() {
         validPath = Paths.get("./src/test/resources/validFile.csv");
-        malformedCSVPath = Paths.get("./src/test/resources/malformed.csv");
         invalidPath = Paths.get("./src/test/resources/invalidFile.txt");
         nonCsvPath = Paths.get("./src/test/resources/nonCsvFile.csv");
     }
