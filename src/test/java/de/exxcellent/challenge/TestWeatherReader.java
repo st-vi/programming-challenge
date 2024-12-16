@@ -3,6 +3,7 @@ package de.exxcellent.challenge;
 import de.exxcellent.challenge.io.CSVSourceConnector;
 import de.exxcellent.challenge.io.WeatherReader;
 import de.exxcellent.challenge.model.WeatherDataEntry;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -16,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TestWeatherReader {
 
+    @Test
     void testSuccessfulWeatherReading() throws IOException {
         List<Map<String,String>> mockData = new LinkedList<>();
         Map<String,String> entry = new HashMap<>();
@@ -33,6 +35,7 @@ public class TestWeatherReader {
         assertEquals(expectedEntry, weatherReader.readData().get(0));
     }
 
+    @Test
     void testMalformedDataReading() throws IOException {
         List<Map<String,String>> mockData = new LinkedList<>();
         Map<String,String> entry = new HashMap<>();
