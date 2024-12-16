@@ -39,4 +39,27 @@ public class TestFootballAnalyzer {
         String teamName = footballAnalyzer.getTeamNameWithMinGoalDifference(footballDataEntries);
         assertEquals("a", teamName);
     }
+
+    @Test
+    void testSuccessfulGetTeamNameWithMinGoalDifferenceWithNegativeDifferences() throws IOException {
+        List<Map<String,String>> mockData = new LinkedList<>();
+        Map<String,String> entry = new HashMap<>();
+        entry.put("Team", "a");
+        entry.put("Goals", "1");
+        entry.put("Goals Allowed", "2");
+        mockData.add(entry);
+        entry = new HashMap<>();
+        entry.put("Team", "b");
+        entry.put("Goals", "3");
+        entry.put("Goals Allowed", "1");
+        mockData.add(entry);
+
+        MockDataSourceConnector<FootballDataEntry> mockDataSourceConnector = new MockDataSourceConnector<>(mockData);
+        FootballReader footballReader = new FootballReader(mockDataSourceConnector);
+
+        List<FootballDataEntry> footballDataEntries = footballReader.readData();
+        FootballAnalyzer footballAnalyzer = new FootballAnalyzer();
+        String teamName = footballAnalyzer.getTeamNameWithMinGoalDifference(footballDataEntries);
+        assertEquals("a", teamName);
+    }
 }
