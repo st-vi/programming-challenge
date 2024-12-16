@@ -2,6 +2,8 @@ package de.exxcellent.challenge.io;
 
 import de.exxcellent.challenge.model.WeatherDataEntry;
 
+import java.util.List;
+
 /**
  * A class for reading weather data. This class implements the {@link IDataReader} interface
  * to handle weather data specifically and uses a provided {@link IDataSourceConnector}
@@ -25,12 +27,12 @@ public class WeatherReader implements IDataReader<WeatherDataEntry>{
     }
 
     /**
-     * Reads and retrieves a single {@link WeatherDataEntry} from the data source.
+     * Reads and retrieves all {@link WeatherDataEntry} from the data source.
      *
-     * @return A {@link WeatherDataEntry} object containing the weather data.
+     * @return A list of {@link WeatherDataEntry} objects containing the weather data.
      */
     @Override
-    public WeatherDataEntry readData() {
+    public List<WeatherDataEntry> readData() {
         return null;
     }
 }

@@ -1,5 +1,7 @@
 package de.exxcellent.challenge.io;
 
+import java.util.List;
+
 /**
  * A generic interface for reading data from a source.
  *
@@ -10,8 +12,7 @@ public interface IDataReader<T> {
     /**
      * Reads data from a data source and returns it.
      *
-     * @return The data of type {@code T} read from the source. The returned object
-     *         may vary depending on the implementation of the data reader.
+     * @return A list of type {@code T} read from the source.
      */
-    public T readData();
+    public List<T> readData();
 }

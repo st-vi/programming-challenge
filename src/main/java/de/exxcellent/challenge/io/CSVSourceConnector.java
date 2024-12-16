@@ -1,6 +1,7 @@
 package de.exxcellent.challenge.io;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -39,7 +40,7 @@ public class CSVSourceConnector<T> implements IDataSourceConnector<T> {
      * @return The mapped data of type {@code T}.
      */
     @Override
-    public T readData(Function<Map<String, String>, T> dataMapping) {
+    public List<T> readData(Function<Map<String, String>, T> dataMapping) {
         return null;
     }
 }
