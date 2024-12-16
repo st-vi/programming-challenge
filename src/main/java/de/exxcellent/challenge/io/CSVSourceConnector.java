@@ -26,7 +26,7 @@ public class CSVSourceConnector<T> implements IDataSourceConnector<T> {
      */
     public final Path CSV_PATH;
 
-    public final String SEPARATOR = ";";
+    public final String SEPARATOR = ",";
 
     /**
      * Constructs a new {@code CSVSourceConnector} with the given CSV file path.
