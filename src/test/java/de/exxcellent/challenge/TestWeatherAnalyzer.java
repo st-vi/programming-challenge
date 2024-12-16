@@ -61,6 +61,16 @@ public class TestWeatherAnalyzer {
         assertEquals(1, resultDayId);
     }
 
+    @Test
+    void testGetDayWithMinTemperatureSpreadWithEmptyList() throws IOException {
+        List<Map<String,String>> mockData = new LinkedList<>();
 
+        MockDataSourceConnector<WeatherDataEntry> mockDataSourceConnector = new MockDataSourceConnector<>(mockData);
+        WeatherReader weatherReader = new WeatherReader(mockDataSourceConnector);
+
+        List<WeatherDataEntry> weatherDataEntries = weatherReader.readData();
+        WeatherAnalyzer weatherAnalyzer = new WeatherAnalyzer();
+        assertThrows(IllegalArgumentException.class, () -> weatherAnalyzer.getDayWithMinTemperatureSpread(weatherDataEntries));
+    }
 
 }
