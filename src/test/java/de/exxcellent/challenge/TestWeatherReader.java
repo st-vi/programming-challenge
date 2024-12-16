@@ -48,4 +48,19 @@ public class TestWeatherReader {
 
         assertThrows(IllegalArgumentException.class, weatherReader::readData);
     }
+
+    @Test
+    void testMinGreaterMaxTempReading() throws IOException {
+        List<Map<String,String>> mockData = new LinkedList<>();
+        Map<String,String> entry = new HashMap<>();
+        entry.put("Day", "1");
+        entry.put("MxT", "1");
+        entry.put("MnT", "2");
+        mockData.add(entry);
+
+        MockDataSourceConnector<WeatherDataEntry> mockDataSourceConnector = new MockDataSourceConnector<>(mockData);
+        WeatherReader weatherReader = new WeatherReader(mockDataSourceConnector);
+
+        assertThrows(IllegalArgumentException.class, weatherReader::readData);
+    }
 }
