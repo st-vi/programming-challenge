@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TestWeatherReader {
 
@@ -30,5 +31,21 @@ public class TestWeatherReader {
         List<WeatherDataEntry> result = weatherReader.readData();
         assertEquals(1, result.size());
         assertEquals(expectedEntry, weatherReader.readData().get(0));
+    }
+
+    void testMalformedDataReading() throws IOException {
+        List<Map<String,String>> mockData = new LinkedList<>();
+        Map<String,String> entry = new HashMap<>();
+        entry.put("a", "a");
+        entry.put("b", "b");
+        mockData.add(entry);
+
+        MockDataSourceConnector<WeatherDataEntry> mockDataSourceConnector = new MockDataSourceConnector<>(mockData);
+        WeatherReader weatherReader = new WeatherReader(mockDataSourceConnector);
+
+        WeatherDataEntry expectedEntry = new WeatherDataEntry(1, 88,59);
+        List<WeatherDataEntry> result = weatherReader.readData();
+
+        assertThrows(IllegalArgumentException.class, weatherReader::readData);
     }
 }
