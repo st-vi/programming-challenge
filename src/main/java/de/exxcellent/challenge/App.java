@@ -28,7 +28,7 @@ public final class App {
     public static void main(String... args) {
         try {
             IDataReader<WeatherDataEntry> weatherReader = new WeatherReader(
-                    new CSVSourceConnector<WeatherDataEntry>(
+                    new CSVSourceConnector<>(
                             Paths.get("./src/main/resources/de/exxcellent/challenge/weather.csv")
                     )
             );
@@ -39,7 +39,7 @@ public final class App {
             System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
 
             IDataReader<FootballDataEntry> footballReader = new FootballReader(
-                    new CSVSourceConnector<FootballDataEntry>(
+                    new CSVSourceConnector<>(
                             Paths.get("./src/main/resources/de/exxcellent/challenge/football.csv")
                     )
             );
