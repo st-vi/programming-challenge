@@ -1,5 +1,14 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.analyzer.WeatherAnalyzer;
+import de.exxcellent.challenge.io.CSVSourceConnector;
+import de.exxcellent.challenge.io.IDataReader;
+import de.exxcellent.challenge.io.WeatherReader;
+import de.exxcellent.challenge.model.WeatherDataEntry;
+
+import java.nio.file.Paths;
+import java.util.List;
+
 /**
  * The entry class for your solution. This class is only aimed as starting point and not intended as baseline for your software
  * design. Read: create your own classes and packages as appropriate.
@@ -14,9 +23,17 @@ public final class App {
      */
     public static void main(String... args) {
 
-        // Your preparation code …
+        IDataReader<WeatherDataEntry> weatherReader = new WeatherReader(
+                new CSVSourceConnector<WeatherDataEntry>(
+                        Paths.get("resources/weather.csv")
+                )
+        );
 
-        String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
+        List<WeatherDataEntry> weatherDataEntryList = weatherReader.readData();
+
+        WeatherAnalyzer weatherAnalyzer = new WeatherAnalyzer();
+
+        int dayWithSmallestTempSpread = weatherAnalyzer.getDayWithMinTemperatureSpread(weatherDataEntryList);     // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
 
         String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
