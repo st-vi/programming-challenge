@@ -1,5 +1,6 @@
 package de.exxcellent.challenge.io;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -19,5 +20,5 @@ public interface IDataSourceConnector<T> {
      *                    (representing raw data) into an object of type {@code T}
      * @return a List of objects of type {@code T} created from the mapped data
      */
-    public List<T> readData(Function<Map<String,String>, T> dataMapping);
+    public List<T> readData(Function<Map<String,String>, T> dataMapping) throws FileNotFoundException;
 }
