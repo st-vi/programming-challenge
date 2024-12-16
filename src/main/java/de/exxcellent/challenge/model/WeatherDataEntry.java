@@ -1,4 +1,4 @@
 package de.exxcellent.challenge.model;
 
-public class WeatherDataEntry {
+public record WeatherDataEntry(int day, int maxTemp, int minTemp) {
 }
