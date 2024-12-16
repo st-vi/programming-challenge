@@ -35,7 +35,7 @@ public class TestWeatherAnalyzer {
         List<WeatherDataEntry> weatherDataEntries = weatherReader.readData();
         WeatherAnalyzer weatherAnalyzer = new WeatherAnalyzer();
         int resultDayId = weatherAnalyzer.getDayWithMinTemperatureSpread(weatherDataEntries);
-        assertEquals(1, resultDayId);
+        assertEquals(2, resultDayId);
     }
 
     @Test
@@ -43,13 +43,13 @@ public class TestWeatherAnalyzer {
         List<Map<String,String>> mockData = new LinkedList<>();
         Map<String,String> entry = new HashMap<>();
         entry.put("Day", "1");
-        entry.put("MxT", "1");
-        entry.put("MnT", "2");
+        entry.put("MxT", "2");
+        entry.put("MnT", "1");
         mockData.add(entry);
         entry = new HashMap<>();
         entry.put("Day", "2");
-        entry.put("MxT", "2");
-        entry.put("MnT", "3");
+        entry.put("MxT", "3");
+        entry.put("MnT", "2");
         mockData.add(entry);
 
         MockDataSourceConnector<WeatherDataEntry> mockDataSourceConnector = new MockDataSourceConnector<>(mockData);
