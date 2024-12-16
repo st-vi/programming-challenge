@@ -7,9 +7,9 @@ import java.io.FileNotFoundException;
 import java.util.List;
 
 public class FootballReader  implements IDataReader<FootballDataEntry> {
-    public final IDataSourceConnector<WeatherDataEntry> dataSourceConnector;
+    public final IDataSourceConnector<FootballDataEntry> dataSourceConnector;
 
-    public FootballReader(IDataSourceConnector<WeatherDataEntry> dataSourceConnector) {
+    public FootballReader(IDataSourceConnector<FootballDataEntry> dataSourceConnector) {
         this.dataSourceConnector = dataSourceConnector;
     }
 
