@@ -19,10 +19,12 @@ public class TestCSVReader {
     private Path validPath;
     private Path invalidPath;
     private Path nonCsvPath;
+    private Path malformedCSVPath;
 
     @BeforeEach
     void setUp() {
         validPath = Paths.get("validFile.csv");
+        malformedCSVPath = Paths.get("malformed.csv");
         invalidPath = Paths.get("invalidFile.txt");
         nonCsvPath = Paths.get("nonCsvFile.csv");
     }
@@ -48,5 +50,12 @@ public class TestCSVReader {
         assertEquals(1, result.size());
         assertEquals("a", result.get(0).get("a"));
         assertEquals("b", result.get(0).get("b"));
+    }
+
+    @Test
+    void testMalformedCSV() throws IOException {
+        CSVSourceConnector<Map<String, String>> reader = new CSVSourceConnector<>(malformedCSVPath);
+        Function<Map<String, String>, Map<String, String>> dataMapping = map -> map;
+        assertThrows(IllegalArgumentException.class, () -> reader.readData(dataMapping));
     }
 }
