@@ -53,7 +53,7 @@ public class CSVSourceConnector<T> implements IDataSourceConnector<T> {
 
         // check if the CSV file exists and is readable
         if (!Files.exists(CSV_PATH)) {
-            throw new FileNotFoundException("CSV file does not exist: " + CSV_PATH.toString());
+            throw new FileNotFoundException("CSV file does not exist: " + CSV_PATH);
         }
 
         // check if the file is a CSV
@@ -65,7 +65,7 @@ public class CSVSourceConnector<T> implements IDataSourceConnector<T> {
             String headerLine = reader.readLine();
 
             if (headerLine == null) {
-                throw new IOException("CSV file is empty: " + CSV_PATH.toString());
+                throw new IOException("CSV file is empty: " + CSV_PATH);
             }
 
             // split the header line to get column names
@@ -89,7 +89,7 @@ public class CSVSourceConnector<T> implements IDataSourceConnector<T> {
                 resultList.add(mappedData);
             }
         } catch (IOException e) {
-            throw new RuntimeException("Error reading the CSV file: " + CSV_PATH.toString(), e);
+            throw new RuntimeException("Error reading the CSV file: " + CSV_PATH, e);
         }
 
         return resultList;
