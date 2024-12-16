@@ -10,7 +10,7 @@ import java.util.function.Function;
 
 public class MockDataSourceConnector<T> implements IDataSourceConnector<T> {
 
-    private List<Map<String,String>> mockData;
+    private final List<Map<String,String>> mockData;
     public MockDataSourceConnector(List<Map<String,String>> mockData){
         this.mockData = mockData;
     }
